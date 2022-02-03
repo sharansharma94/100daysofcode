@@ -3,7 +3,11 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
-  return <div className="App">hello world quiz</div>;
+  return (
+    <div className="App">
+      <div className="container">hello world quiz</div>
+    </div>
+  );
 }
 
 export default App;
