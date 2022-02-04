@@ -1,3 +1,7 @@
-export default function Card() {
-  return <div className="card"></div>;
+interface CardProps {
+  children: React.ReactNode;
+}
+
+export default function Card({ children }: CardProps) {
+  return <div className="card">{children}</div>;
 }
