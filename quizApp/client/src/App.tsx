@@ -1,11 +1,14 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import Card from "./Card";
 
 function App() {
   return (
     <div className="App">
-      <div className="container">hello world quiz</div>
+      <div className="container">
+        <Card>
+          <div className="questions">questions</div>
+        </Card>
+      </div>
     </div>
   );
 }
