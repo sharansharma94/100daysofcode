@@ -1,5 +1,5 @@
 :root {
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   --white: #f4f2f6;
@@ -19,25 +19,76 @@ body {
 
 .container {
   background-color: var(--gray);
-  /* position: absolute; */
-  /* margin: 1rem auto; */
-  /* top: 20vh; */
-  /* margin-top: 5rem; */
   width: 80vw;
   max-width: 500px;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  /* align-items: center; */
   border-radius: 0.5rem;
 }
 
 .card {
   background-color: var(--white);
-  width: 100%;
+  /* width: 0%; */
   height: 200px;
   position: relative;
-  top: 5rem;
+  top: -2rem;
   border-radius: 0.5rem;
   max-width: 400px;
+  margin: 0 1rem;
+}
+
+header {
+  height: 30vh;
+  width: 100%;
+  background-color: var(--dark);
+}
+
+.timer {
+  background-color: var(--white);
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  position: relative;
+  top: -1rem;
+  left: 50%;
+  transform: translate(-50%);
+  /* padding: 0.2rem; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 0.3rem solid var(--dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 0.2rem solid var(--white);
+}
+
+.score {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  font-weight: 600;
+}
+
+.correct {
+  color: green;
+}
+
+.correct::after {
+  width: 20px;
+  height: 10px;
+  background-color: green;
+  content: "";
+  display: inline-block;
+  padding-left: 2rem;
+  /* position: absolute; */
+}
+
+.incorrect {
+  color: red;
 }
