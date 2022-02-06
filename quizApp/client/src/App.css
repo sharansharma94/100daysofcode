@@ -8,9 +8,16 @@
   --medium: #a76ae4;
   --gray: #a49fa2;
   --brown: #684c50;
+  --banner: rgb(155, 83, 212);
+  --banner-light: rgb(164, 96, 217);
 }
 
 body {
+  width: 100%;
+  height: 100%;
+}
+
+.App {
   background-color: var(--light);
   display: flex;
   justify-content: center;
@@ -18,7 +25,7 @@ body {
 }
 
 .container {
-  background-color: var(--gray);
+  background-color: var(--white);
   width: 80vw;
   max-width: 500px;
   height: 100vh;
@@ -27,19 +34,58 @@ body {
 
 .card {
   background-color: var(--white);
-  /* width: 0%; */
   height: 200px;
   position: relative;
   top: -2rem;
   border-radius: 0.5rem;
   max-width: 400px;
-  margin: 0 1rem;
+  margin: 0 auto;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.19),
+    5px 5px 10px rgba(164, 96, 217, 0.2);
 }
 
 header {
   height: 30vh;
   width: 100%;
-  background-color: var(--dark);
+  background-color: var(--banner);
+  border-radius: 0 0 20px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.circle {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: var(--banner-light);
+  position: absolute;
+}
+
+.circle:nth-child(1) {
+  width: 100px;
+  height: 100px;
+  left: -50px;
+}
+
+.circle:nth-child(2) {
+  right: 40%;
+  top: 20px;
+  width: 40px;
+  height: 40px;
+}
+
+.circle:nth-child(3) {
+  right: 50%;
+  top: -40px;
+  width: 80px;
+  height: 80px;
+}
+
+.circle:nth-child(4) {
+  right: -60px;
+  bottom: -40px;
+  width: 120px;
+  height: 120px;
 }
 
 .timer {
@@ -61,7 +107,7 @@ header {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 0.3rem solid var(--dark);
+  border: 0.3rem solid var(--banner);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,15 +126,85 @@ header {
 }
 
 .correct::after {
-  width: 20px;
+  width: 40px;
   height: 10px;
   background-color: green;
   content: "";
   display: inline-block;
-  padding-left: 2rem;
-  /* position: absolute; */
+  margin-left: 10px;
+  border-radius: 20px;
 }
 
 .incorrect {
   color: red;
+}
+
+.incorrect::before {
+  width: 40px;
+  height: 10px;
+  background-color: red;
+  content: "";
+  display: inline-block;
+  margin-right: 10px;
+  border-radius: 20px;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.question-number {
+  color: var(--banner);
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.question-number > span {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.question {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  /* color: var(--gray); */
+}
+
+.options {
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+.option {
+  border: 0.1rem solid var(--gray);
+  margin: 0 2rem 0.5rem 2rem;
+  border-radius: 7px;
+  padding: 0.3rem;
+}
+
+.right {
+  border: 0.1rem solid var(--banner);
+  position: relative;
+}
+
+.right::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: var(--banner);
+  right: 2%;
+  border-radius: 50%;
+}
+
+.wrond::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: red;
+  right: 2%;
+  border-radius: 50%;
 }
