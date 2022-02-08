@@ -35,12 +35,22 @@ function App() {
     answer: string;
   }
 
+  const handleTouched = (index: number, correctAnswer: boolean) => {
+    touched[index] = correctAnswer ? 1 : 0;
+    setTouched([...touched]);
+  };
+
   const correctAnswer = (e: any, option: Option, idx: number) => {
     if (e.target.innerText === option.answer) {
-      setTouched([...touched]);
+      handleTouched(idx, true);
       return true;
     }
+    handleTouched(idx, false);
     return false;
+  };
+
+  const getClassNameForOption = (idx: number) => {
+    return touched[idx] < 0 ? "" : touched[idx] ? "right" : "wrong";
   };
 
   return (
@@ -74,10 +84,9 @@ function App() {
           <div className="options">
             {questions[current].options.map((option, idx) => (
               <div
-                className={`option ${
-                  touched[idx] < 0 ? "" : touched[idx] ? "right" : "wrong"
-                }`}
+                className={`option ${getClassNameForOption(idx)}`}
                 onClick={(e) => correctAnswer(e, questions[current], idx)}
+                key={idx}
               >
                 {option}
               </div>

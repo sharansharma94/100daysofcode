@@ -184,6 +184,10 @@ header {
   padding: 0.3rem;
 }
 
+.option:hover {
+  cursor: pointer;
+}
+
 .right {
   border: 0.1rem solid var(--banner);
   position: relative;
@@ -198,8 +202,11 @@ header {
   right: 2%;
   border-radius: 50%;
 }
-
-.wrond::after {
+.wrong {
+  border: 0.1rem solid red;
+  position: relative;
+}
+.wrong::after {
   content: "";
   position: absolute;
   width: 25px;
