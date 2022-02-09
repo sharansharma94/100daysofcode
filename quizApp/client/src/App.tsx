@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Card from "./Card";
+import { CheckIcon, Cross } from "./svgs";
 
 function App() {
   const [questions, setQuestions] = useState([
@@ -82,15 +83,22 @@ function App() {
           </Card>
 
           <div className="options">
-            {questions[current].options.map((option, idx) => (
-              <div
-                className={`option ${getClassNameForOption(idx)}`}
-                onClick={(e) => correctAnswer(e, questions[current], idx)}
-                key={idx}
-              >
-                {option}
-              </div>
-            ))}
+            {questions[current].options.map((option, idx) => {
+              const classname = getClassNameForOption(idx);
+              return (
+                <div
+                  className={`option ${classname}`}
+                  onClick={(e) => correctAnswer(e, questions[current], idx)}
+                  key={idx}
+                >
+                  {option}
+                  <div className="option-icon">
+                    {classname === "right" && <CheckIcon />}
+                    {classname === "wrong" && <Cross />}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </main>
       </div>
