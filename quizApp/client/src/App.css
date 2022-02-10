@@ -182,6 +182,8 @@ header {
   margin: 0 2rem 0.5rem 2rem;
   border-radius: 7px;
   padding: 0.3rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .option:hover {
@@ -193,25 +195,12 @@ header {
   position: relative;
 }
 
-.right::after {
-  content: "";
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  background-color: var(--banner);
-  right: 2%;
-  border-radius: 50%;
-}
 .wrong {
   border: 0.1rem solid red;
   position: relative;
 }
-.wrong::after {
-  content: "";
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  background-color: red;
-  right: 2%;
-  border-radius: 50%;
+
+.option-icon {
+  width: 24px;
+  height: 24px;
 }
